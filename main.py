@@ -1,6 +1,16 @@
 import requests
 
 def create_github_repo(repo_name, token):
+    # Check if the access token is provided
+    if not token:
+        print("Error: Please provide a valid GitHub access token.")
+        return
+
+    # Check if the repository name is provided
+    if not repo_name:
+        print("Error: Please provide a valid repository name.")
+        return
+
     headers = {
         'Authorization': f'Bearer {token}',
         'Accept': 'application/vnd.github.v3+json'
